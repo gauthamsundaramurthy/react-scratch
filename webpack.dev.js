@@ -3,6 +3,7 @@ const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const ProgressPlugin = require('progress-webpack-plugin')
 
 module.exports = merge(common, {
     mode: 'development',
@@ -23,6 +24,7 @@ module.exports = merge(common, {
     },
     plugins: [
         new CleanWebpackPlugin(),
-        new BundleAnalyzerPlugin()
+        new BundleAnalyzerPlugin(),
+        new ProgressPlugin(true)
     ]
 });
